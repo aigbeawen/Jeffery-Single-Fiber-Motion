@@ -23,7 +23,7 @@ X0=[5.85; 0.15; 0.15]; Qt0=[0.;-pi/2; 0.]; QX0=[Qt0;X0];
 QXa=[0;-pi/2;0;0;0;0]; QXb=[2*pi;pi/2;2*pi;6.;1.;1.];
 [QXopt,Popt]=Optfunc(QX0,1, invar{:},QXa,QXb)
 % ----------------------------ODE Solver-----------------------------------
-t0=0.; dt=.5; tn=2*pi/G*(re(1)+1/re(1))+2.5; tp=t0:dt:1; 
+t0=0.; dt=.5; tn=2*pi/G*(re(1)+1/re(1))+2.5; tp=t0:dt:tn; 
 Qs=pi/2; Q0=[0;-Qs; 0.]; % Initial Orientation
 [tp, Qt]=ode23s(@(t,Q) Bfunc(t,[Q;Xtip],invar{:}),tp,Q0);
 nt=length(tp);
